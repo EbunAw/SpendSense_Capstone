@@ -24,3 +24,6 @@ chroma_db/
 # Operating system files
 .DS_Store
 Thumbs.db
+
+# Local embedding model
+app/all-MiniLM-L6-v2/

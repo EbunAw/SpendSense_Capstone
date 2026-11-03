@@ -21,7 +21,7 @@ load_dotenv(BASE_DIR / ".env")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 # Model configuration
-EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+EMBEDDING_MODEL = str(BASE_DIR / "app" / "all-MiniLM-L6-v2")
 GEMINI_MODEL = "gemini-3.5-flash-lite"
 
 # ChromaDB collection name

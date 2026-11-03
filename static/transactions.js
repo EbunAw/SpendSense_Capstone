@@ -1,5 +1,5 @@
 
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE = "http://localhost:8001";
 
 const currencyFormatter = new Intl.NumberFormat("en-GB", {
     style: "currency",
