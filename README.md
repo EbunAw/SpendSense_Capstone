@@ -2,32 +2,35 @@
 
 **An AI-powered personal finance transaction investigator for students and young professionals.**
 
-SpendSense helps users understand their transaction history, identify spending patterns, review unusual transactions, and access financial-literacy information through an AI assistant.
+SpendSense helps users understand where their money goes, identify spending patterns, review unusual transactions, and access financial-literacy information through a retrieval-augmented generation (RAG) assistant.
 
 ## Problem Statement
 
-Students and young professionals often find it difficult to understand where their money goes, recognize recurring payments, and identify unusual spending patterns. SpendSense provides a data-driven way to explore transaction activity and gain practical financial insights.
+Students and young professionals often find it difficult to understand their transaction history, recognize recurring payments, and identify unusual spending patterns.
+
+SpendSense provides a data-driven way to explore transaction activity and gain practical financial insights. It combines deterministic financial analysis with an AI-powered financial-literacy assistant to help users make better-informed decisions.
 
 ## Key Features
 
 - **Dashboard:** View income, outgoing transactions, net cash flow, and consumption spending.
 - **Transaction Explorer:** Search and review transaction records.
 - **Spending Insights:** Explore category spending, recurring payment patterns, and anomaly candidates.
-- **AI Financial Assistant:** Ask financial-literacy questions and receive answers grounded in a knowledge base with source references.
-- **Financial Analysis:** Use Python and Pandas for deterministic calculations rather than relying on an LLM to calculate financial figures.
+- **AI Financial Assistant:** Ask financial-literacy questions and receive answers grounded in a knowledge base, with source references.
+- **Deterministic Financial Analysis:** Use Python and Pandas for financial calculations instead of relying on an LLM to calculate financial figures.
+- **Responsible AI Behavior:** The assistant can acknowledge when the retrieved context does not contain enough information to answer a question.
 
 ## Technology Stack
 
-- Python
-- FastAPI
-- Pandas and NumPy
-- ChromaDB
-- Sentence Transformers
-- Google Gemini API
-- HTML, CSS, and JavaScript
-- Chart.js
-- Docker
-- Pytest
+| Area | Technologies |
+|---|---|
+| Backend | Python, FastAPI |
+| Data Analysis | Pandas, NumPy |
+| RAG and Retrieval | ChromaDB, Sentence Transformers |
+| LLM | Google Gemini API |
+| Frontend | HTML, CSS, JavaScript, Chart.js |
+| Containerization | Docker, Docker Compose |
+| Testing | Pytest |
+| CI | GitHub Actions |
 
 ## Dataset
 
@@ -50,9 +53,12 @@ SpendSense separates deterministic financial analysis from AI-powered financial-
 1. Transaction data is loaded and processed using Python and Pandas.
 2. Financial calculations are performed by deterministic functions.
 3. Transaction insights are exposed through FastAPI endpoints.
-4. Financial-literacy documents are processed and stored in ChromaDB.
-5. The AI assistant retrieves relevant knowledge-base content to support grounded responses.
-6. The frontend displays financial summaries, charts, transaction records, insights, and assistant responses.
+4. Financial-literacy documents are processed, embedded, and stored in ChromaDB.
+5. When a user asks a question, the RAG pipeline retrieves relevant knowledge-base content.
+6. The retrieved context is passed to the LLM to generate a grounded response.
+7. The frontend displays financial summaries, charts, transaction records, insights, and assistant responses.
+
+The application is designed so that financial calculations remain deterministic, while the LLM is used for explanations based on retrieved financial-literacy content.
 
 ## Project Structure
 
@@ -65,6 +71,9 @@ SpendSense_Capstone/
 ├── tests/
 ├── templates/
 ├── static/
+├── .github/
+│   └── workflows/
+│       └── tests.yml
 ├── Dockerfile
 ├── docker-compose.yml
 ├── .dockerignore
@@ -77,7 +86,7 @@ SpendSense_Capstone/
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/EbunAw/SpendSense_Capstone.git
 cd SpendSense_Capstone
 ```
 
@@ -98,7 +107,7 @@ pip install -r requirements.txt
 
 ### 4. Configure environment variables
 
-Create a `.env` file in the project root and add the required API key:
+Create a `.env` file in the project root and add your Gemini API key:
 
 ```text
 GEMINI_API_KEY=your_api_key_here
@@ -114,43 +123,65 @@ python -m uvicorn app.main:app --reload
 
 Open:
 
-- Dashboard: http://localhost:8000
-- API documentation: http://localhost:8000/docs
+- Dashboard: [http://localhost:8000](http://localhost:8000)
+- API documentation: [http://localhost:8000/docs](http://localhost:8000/docs)
 
 ## Run with Docker
 
-Build and start the container:
+Build and start the application:
 
 ```powershell
-docker compose up --build
+docker compose up -d --build
 ```
 
 The Docker configuration maps the application to port 8001 on the host:
 
-- Application: http://localhost:8001
-- API documentation: http://localhost:8001/docs
+- Application: [http://localhost:8001](http://localhost:8001)
+- API documentation: [http://localhost:8001/docs](http://localhost:8001/docs)
 
-Docker deployment is included as part of the capstone implementation.
+The Docker Compose configuration mounts the local ChromaDB directory into the container so the financial-literacy collection is available to the RAG assistant.
+
+To stop the application:
+
+```powershell
+docker compose down
+```
 
 ## Testing
 
 Run the test suite:
 
 ```powershell
-pytest
+python -m pytest -q
 ```
 
-The current test suite contains 13 passing tests covering financial calculations and API behavior.
+**Current test result: 13 passed.**
+
+The test suite covers financial calculations and API behavior. The local test run reports one ChromaDB dependency deprecation warning, which does not cause the tests to fail.
+
+## Continuous Integration
+
+SpendSense uses GitHub Actions to run the test suite automatically when changes are pushed to the `main` branch or when a pull request targets `main`.
+
+The CI workflow:
+
+1. Checks out the repository.
+2. Sets up Python.
+3. Installs project dependencies.
+4. Runs the Pytest suite.
+
+The workflow has been configured and successfully completed with a green check.
 
 ## Responsible Use and Limitations
 
 SpendSense is an educational financial-analysis application, not a banking platform or professional financial-advice service.
 
 - Financial totals are calculated using deterministic Python logic.
-- The AI assistant is used for financial-literacy explanations.
+- The AI assistant provides financial-literacy explanations grounded in retrieved content.
 - Anomaly detection identifies candidates for review, not confirmed fraud.
 - Recurring transaction patterns require user interpretation.
 - The application does not connect to a user's live bank account.
+- The quality of AI responses depends on the coverage and relevance of the financial knowledge base.
 
 ## Future Improvements
 
@@ -163,3 +194,5 @@ SpendSense is an educational financial-analysis application, not a banking platf
 ## Author
 
 Developed as an independent AI/ML capstone project.
+
+[GitHub Repository](https://github.com/EbunAw/SpendSense_Capstone)
