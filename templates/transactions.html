@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions | SpendSense</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="app-container">
+
+    <aside class="sidebar">
+        <div class="brand">
+            <span class="brand-icon">S</span>
+            <span>SpendSense</span>
+        </div>
+
+        <nav>
+            <a href="/" class="nav-link">Dashboard</a>
+            <a href="/transactions" class="nav-link active">Transactions</a>
+            <a href="/insights" class="nav-link">Insights</a>
+            <a href="/assistant" class="nav-link">AI Assistant</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <span>Personal Finance</span>
+            <small>Powered by SpendSense AI</small>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h1>Transactions</h1>
+                <p>Review your recorded financial activity.</p>
+            </div>
+        </header>
+
+        <section class="welcome-section">
+            <h2>Your transaction activity</h2>
+            <p>Explore your spending patterns and transaction records.</p>
+        </section>
+
+        <section class="summary-grid">
+            <div class="summary-card">
+                <span class="summary-label">Records Loaded</span>
+                <h2 id="records-count">—</h2>
+                <p>Recent transactions</p>
+            </div>
+
+            <div class="summary-card">
+                <span class="summary-label">Income</span>
+                <h2 id="transactions-income">—</h2>
+                <p>In the records shown</p>
+            </div>
+
+            <div class="summary-card">
+                <span class="summary-label">Outgoing</span>
+                <h2 id="transactions-outgoing">—</h2>
+                <p>In the records shown</p>
+            </div>
+        </section>
+
+        <section class="dashboard-card">
+            <div class="section-heading">
+                <div>
+                    <h3>Transaction Records</h3>
+                    <p>Search by transaction number or category.</p>
+                </div>
+
+                <input
+                    type="search"
+                    id="transaction-search"
+                    placeholder="Search transactions..."
+                    aria-label="Search transactions"
+                >
+            </div>
+
+            <p id="transaction-message" role="status">
+                Loading transaction records...
+            </p>
+
+            <div class="table-wrapper">
+                <table class="transactions-table">
+                    <thead>
+                        <tr>
+                            <th>Transaction ID</th>
+                            <th>Date</th>
+                            <th>Category</th>
+                            <th>Income</th>
+                            <th>Outgoing</th>
+                            <th>Consumption</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="transactions-table-body">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+</div>
+
+<script src="/static/transactions.js"></script>
+</body>
+</html>

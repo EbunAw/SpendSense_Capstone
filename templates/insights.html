@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights | SpendSense</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="app-container">
+
+    <aside class="sidebar">
+        <div class="brand">
+            <span class="brand-icon">S</span>
+            <span>SpendSense</span>
+        </div>
+
+        <nav>
+            <a href="/" class="nav-link">Dashboard</a>
+            <a href="/transactions" class="nav-link">Transactions</a>
+            <a href="/insights" class="nav-link active">Insights</a>
+            <a href="/assistant" class="nav-link">AI Assistant</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <span>Personal Finance</span>
+            <small>Powered by SpendSense AI</small>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h1>Financial Insights</h1>
+                <p>Understand patterns in your financial activity.</p>
+            </div>
+        </header>
+
+        <section class="welcome-section">
+            <h2>Make sense of your spending</h2>
+            <p>
+                Review financial health observations, unusual spending
+                candidates, and potential recurring payments.
+            </p>
+        </section>
+
+        <section class="dashboard-card">
+            <h3>Financial Health</h3>
+            <p class="section-description">
+                Observations based on your recorded financial activity.
+            </p>
+            <div id="financial-insights" class="insights-list">
+                <p>Loading financial insights...</p>
+            </div>
+        </section>
+
+        <section class="dashboard-card">
+            <h3>Spending Anomalies</h3>
+            <p class="section-description">
+                Transactions that may be unusual compared with their
+                category's typical spending. These are review candidates,
+                not confirmed errors or fraud.
+            </p>
+
+            <p id="anomaly-message" role="status">
+                Loading anomaly candidates...
+            </p>
+
+            <div class="table-wrapper">
+                <table class="transactions-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Category</th>
+                            <th>Outgoing</th>
+                            <th>Category Threshold</th>
+                        </tr>
+                    </thead>
+                    <tbody id="anomalies-table-body"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="dashboard-card">
+            <h3>Potential Recurring Payments</h3>
+            <p class="section-description">
+                Repeated payment patterns that may deserve a closer look.
+                A repeated amount alone does not confirm a subscription.
+            </p>
+
+            <p id="recurring-message" role="status">
+                Loading recurring payment patterns...
+            </p>
+
+            <div class="table-wrapper">
+                <table class="transactions-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Occurrences</th>
+                            <th>Pattern</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recurring-table-body"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+</div>
+
+<script src="/static/insights.js"></script>
+</body>
+</html>

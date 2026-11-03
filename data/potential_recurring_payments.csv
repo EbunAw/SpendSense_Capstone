@@ -1,0 +1,18 @@
+Category,Amount,Occurrences,First_Date,Last_Date,Median_Gap_Days,Gap_Std_Dev,Pattern_Indication
+Entertainment,7.99,54,2018-02-26,2022-07-25,31.0,1.4574268037345242,Potential monthly pattern
+Home Improvement,19.5,16,2016-03-22,2017-06-22,31.0,2.1668498091095505,Potential monthly pattern
+Others,23.11,12,2017-09-29,2018-08-31,31.0,1.6348477827391983,Potential monthly pattern
+Home Improvement,14.75,12,2018-10-22,2019-09-23,31.0,1.7529196424044295,Potential monthly pattern
+Others,22.7,12,2016-09-30,2017-08-31,31.0,1.5075567228888183,Potential monthly pattern
+Others,24.76,12,2019-09-30,2020-08-28,31.0,1.555050423035156,Potential monthly pattern
+Others,24.26,12,2018-09-28,2019-08-30,31.0,1.7529196424044295,Potential monthly pattern
+Bills,27.0,10,2017-11-21,2018-08-21,30.0,1.8027756377319948,Potential monthly pattern
+Bills,29.0,10,2018-11-21,2019-08-21,31.0,1.5811388300841898,Potential monthly pattern
+Bills,27.99,9,2016-02-22,2016-10-21,30.0,1.3887301496588271,Potential monthly pattern
+Services,22.37,9,2015-07-31,2016-03-31,31.0,1.5118578920369088,Potential monthly pattern
+Bills,31.48,7,2016-11-21,2017-05-22,30.5,1.7511900715418265,Potential monthly pattern
+Bills,21.0,5,2021-08-27,2021-12-31,31.5,2.886751345948129,Potential monthly pattern
+Others,22.37,5,2016-04-29,2016-08-26,29.5,1.707825127659933,Potential monthly pattern
+Home Improvement,18.0,4,2019-10-22,2020-01-22,31.0,0.5773502691896258,Potential monthly pattern
+Bills,37.78,3,2015-10-21,2015-12-21,30.5,3.5355339059327378,Potential monthly pattern
+Bills,21.95,3,2021-04-27,2021-06-25,29.5,2.1213203435596424,Potential monthly pattern

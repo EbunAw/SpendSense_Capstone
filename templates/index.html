@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpendSense | Personal Finance Dashboard</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="brand-icon">S</span>
+                <span>SpendSense</span>
+            </div>
+
+            <nav>
+    <a href="/" class="nav-link active">Dashboard</a>
+    <a href="/transactions" class="nav-link">Transactions</a>
+    <a href="/insights" class="nav-link">Insights</a>
+    <a href="/assistant" class="nav-link">AI Assistant</a>
+</nav>
+
+            <div class="sidebar-footer">
+                <span>Personal Finance</span>
+                <small>Powered by SpendSense AI</small>
+            </div>
+        </aside>
+
+        <main class="main-content">
+
+            <header class="topbar">
+                <div>
+                    <h1>Dashboard</h1>
+                    <p>Your financial overview at a glance.</p>
+                </div>
+
+                <div class="profile">
+                    <span>SS</span>
+                    <div>
+                        <strong>My Account</strong>
+                        <small>Personal Dashboard</small>
+                    </div>
+                </div>
+            </header>
+
+            <section class="welcome-section">
+                <h2>Welcome to SpendSense</h2>
+                <p>Understand your spending. Make informed financial decisions.</p>
+            </section>
+
+            <section class="summary-grid">
+
+                <div class="summary-card">
+                    <p>Total Income</p>
+                    <h2 id="total-income">Loading...</h2>
+                </div>
+
+                <div class="summary-card">
+                    <p>Total Outgoing</p>
+                    <h2 id="total-outgoing">Loading...</h2>
+                </div>
+
+                <div class="summary-card">
+                    <p>Net Cash Flow</p>
+                    <h2 id="net-cash-flow">Loading...</h2>
+                </div>
+
+                <div class="summary-card">
+                    <p>Consumption Spending</p>
+                    <h2 id="consumption-spending">Loading...</h2>
+                </div>
+
+            </section>
+
+            <section class="content-grid">
+
+                <div class="dashboard-card">
+                    <h3>Monthly Financial Overview</h3>
+                    <canvas id="monthly-chart"></canvas>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Spending by Category</h3>
+                    <canvas id="category-chart"></canvas>
+                </div>
+
+            </section>
+
+            <section class="dashboard-card insights-card">
+                <h3>Financial Health Insights</h3>
+                <div id="financial-insights">
+                    Loading insights...
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="/static/app.js"></script>
+
+</body>
+</html>
